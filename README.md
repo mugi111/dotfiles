@@ -62,6 +62,7 @@
 - `./scripts/bootstrap.sh`
   - 初期セットアップを行うための起動スクリプト
   - 新しい環境で最初に実行する入口とする
+  - 既存の `~/.zshrc` がある場合は `~/.zshrc.bak` に退避し、リポジトリの `./.zshrc` との差分を表示する
 - `./scripts/install.sh`
   - 各種ツールや依存関係のインストールを担うスクリプト
 - `./starship/starship.toml`

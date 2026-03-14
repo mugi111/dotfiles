@@ -2,19 +2,33 @@
 
 set -euo pipefail
 
+MODULES_FILE="$HOME/.dotfiles.modules.sh"
+base_packages=(
+  direnv
+  fzf
+  starship
+  zoxide
+)
+
+if [[ -f "$MODULES_FILE" ]]; then
+  # shellcheck disable=SC1090
+  source "$MODULES_FILE"
+fi
+
 if ! command -v brew >/dev/null 2>&1; then
   echo "Homebrew is not installed. Install Homebrew first."
   exit 1
 fi
 
-packages=(
-  direnv
-  fzf
-  nodenv
-  pyenv
-  starship
-  zoxide
-)
+packages=("${base_packages[@]}")
+
+if [[ "${DOTFILES_ENABLE_NODE:-1}" == "1" ]]; then
+  packages+=(nodenv)
+fi
+
+if [[ "${DOTFILES_ENABLE_PYTHON:-1}" == "1" ]]; then
+  packages+=(pyenv)
+fi
 
 for package in "${packages[@]}"; do
   brew list "$package" >/dev/null 2>&1 || brew install "$package"

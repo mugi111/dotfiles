@@ -23,17 +23,33 @@
 - `./scripts/**`
   - セットアップやインストールなど、複数箇所から利用する共通スクリプトを配置する
 - `./zsh/**`
-  - `zshrc` 関連の設定を項目ごとに分割して格納する
-  - 例: `aliases.zsh`, `path.zsh`, `exports.zsh`
+  - Zsh 全体で共通利用する設定を役割ごとに分割して格納する
+  - 例: `exports.zsh`, `history.zsh`, `completion.zsh`, `prompt.zsh`
+- `./git/**`
+  - Git 固有の alias や設定を格納する
+- `./python/**`
+  - Python 固有の alias、PATH 設定、初期化処理を格納する
+- `./node/**`
+  - Node.js 固有の alias、PATH 設定、初期化処理を格納する
+- `./go/**`
+  - Go 固有の PATH 設定を格納する
+- `./rust/**`
+  - Rust / Cargo 固有の PATH 設定や初期化処理を格納する
+- `./macos/**`
+  - macOS 固有の alias や補助関数を格納する
 - `./**`
   - 各ツールや各項目の設定は、名前に対応するディレクトリを切って管理する
-  - 例: `./vim/`, `./git/`, `./yarn/`
+  - 例: `./vim/`, `./git/`, `./node/`, `./python/`
 
 ## 配置ルール
 
 - Git 関連の設定は `./git/` にまとめる
+- Python 関連の設定は `./python/` にまとめる
+- Node.js 関連の設定は `./node/` にまとめる
+- macOS 固有の設定は `./macos/` にまとめる
 - Git に関するエイリアスを追加する場合は `./git/aliases.zsh` のように、対象が明確な場所へ置く
-- Zsh の設定は `./zsh/` 配下で機能ごとに分割し、1 ファイル 1 役割を意識する
+- Zsh 全体で共通利用する設定だけを `./zsh/` 配下に置く
+- Zsh の設定は機能ごとに分割し、1 ファイル 1 役割を意識する
 - 新しいツール設定を追加する場合は、トップレベルに対応するディレクトリを作成して管理する
 
 ## スクリプト
@@ -47,6 +63,21 @@
   - 各種ツールや依存関係のインストールを担うスクリプト
 
 - スクリプトは責務を明確に分け、必要に応じて OS 別や用途別に分割して管理する
+
+## 現在の読み込み単位
+
+- `./.zshrc`
+  - 各設定ファイルを順番に読み込む入口とする
+- `./zsh/path.zsh`
+  - Zsh 共通の PATH と補完用設定を管理する
+- `./zsh/integrations.zsh`
+  - `fzf`, `zoxide`, `direnv` など共通 integration を管理する
+- `./python/init.zsh`
+  - `pyenv` の初期化を管理する
+- `./node/init.zsh`
+  - `nodenv`, `nvm` の初期化を管理する
+- `./rust/init.zsh`
+  - Cargo 環境の読み込みを管理する
 
 ## 運用ルール
 

@@ -1,0 +1,17 @@
+alias ls='ls -G'
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -lah'
+alias grep='grep --color=auto 2>/dev/null || grep'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias cls='clear'
+alias reload='source ~/.zshrc'
+alias mkdir='mkdir -p'
+alias c='code .'
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'

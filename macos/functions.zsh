@@ -1,0 +1,3 @@
+finder_here() {
+  open .
+}

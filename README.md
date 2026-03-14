@@ -37,9 +37,11 @@
   - Rust / Cargo 固有の PATH 設定や初期化処理を格納する
 - `./macos/**`
   - macOS 固有の alias や補助関数を格納する
+- `./starship/**`
+  - Starship のテーマ設定を格納する
 - `./**`
   - 各ツールや各項目の設定は、名前に対応するディレクトリを切って管理する
-  - 例: `./vim/`, `./git/`, `./node/`, `./python/`
+  - 例: `./vim/`, `./git/`, `./node/`, `./python/`, `./starship/`
 
 ## 配置ルール
 
@@ -47,6 +49,7 @@
 - Python 関連の設定は `./python/` にまとめる
 - Node.js 関連の設定は `./node/` にまとめる
 - macOS 固有の設定は `./macos/` にまとめる
+- Starship の設定は `./starship/` にまとめる
 - Git に関するエイリアスを追加する場合は `./git/aliases.zsh` のように、対象が明確な場所へ置く
 - Zsh 全体で共通利用する設定だけを `./zsh/` 配下に置く
 - Zsh の設定は機能ごとに分割し、1 ファイル 1 役割を意識する
@@ -61,6 +64,8 @@
   - 新しい環境で最初に実行する入口とする
 - `./scripts/install.sh`
   - 各種ツールや依存関係のインストールを担うスクリプト
+- `./starship/starship.toml`
+  - Starship のテーマ設定を管理する
 
 - スクリプトは責務を明確に分け、必要に応じて OS 別や用途別に分割して管理する
 
@@ -78,6 +83,8 @@
   - `nodenv`, `nvm` の初期化を管理する
 - `./rust/init.zsh`
   - Cargo 環境の読み込みを管理する
+- `./starship/starship.toml`
+  - 2 行構成の Starship テーマを管理する
 
 ## 運用ルール
 

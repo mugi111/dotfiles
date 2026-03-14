@@ -1,0 +1,118 @@
+add_newline = true
+scan_timeout = 30
+command_timeout = 500
+palette = "tokyo_night"
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$python\
+$nodejs\
+$golang\
+$rust
+$character"""
+
+right_format = "$status$cmd_duration"
+
+[palettes.tokyo_night]
+blue = "#7aa2f7"
+green = "#9ece6a"
+orange = "#ff9e64"
+purple = "#bb9af7"
+yellow = "#e0af68"
+red = "#f7768e"
+fg = "#c0caf5"
+muted = "#565f89"
+
+[directory]
+style = "blue"
+format = "[$path]($style) "
+truncation_length = 3
+truncate_to_repo = false
+read_only = "ro"
+read_only_style = "yellow"
+
+[git_branch]
+symbol = "git:"
+style = "purple"
+format = "[$symbol$branch]($style) "
+truncation_length = 32
+truncation_symbol = "..."
+
+[git_status]
+style = "yellow"
+format = "[$all_status$ahead_behind]($style) "
+conflicted = "="
+ahead = ">"
+behind = "<"
+diverged = "<>"
+up_to_date = ""
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "r"
+deleted = "x"
+
+[character]
+success_symbol = "[❯](blue)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
+
+[cmd_duration]
+min_time = 2000
+style = "yellow"
+format = "[$duration]($style)"
+show_milliseconds = false
+
+[status]
+disabled = false
+style = "red"
+format = "[x$status]($style) "
+
+[python]
+symbol = "py "
+style = "green"
+format = "[$symbol$version]($style) "
+detect_files = ["pyproject.toml", "requirements.txt", ".python-version", "Pipfile", "tox.ini", ".venv", "venv"]
+detect_extensions = ["py"]
+
+[nodejs]
+symbol = "node "
+style = "green"
+format = "[$symbol$version]($style) "
+detect_files = ["package.json", ".node-version", ".nvmrc"]
+
+[golang]
+symbol = "go "
+style = "green"
+format = "[$symbol$version]($style) "
+detect_files = ["go.mod", "go.sum", ".go-version"]
+
+[rust]
+symbol = "rs "
+style = "orange"
+format = "[$symbol$version]($style) "
+detect_files = ["Cargo.toml", "Cargo.lock", "rust-toolchain", "rust-toolchain.toml"]
+
+[package]
+disabled = true
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[terraform]
+disabled = true
+
+[time]
+disabled = true

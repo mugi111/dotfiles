@@ -12,6 +12,7 @@ packages=(
   fzf
   nodenv
   pyenv
+  starship
   zoxide
 )
 

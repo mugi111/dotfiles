@@ -1,5 +1,7 @@
 setopt AUTO_CD
+setopt AUTO_LIST
 setopt AUTO_PUSHD
+setopt ALWAYS_TO_END
 setopt PUSHD_IGNORE_DUPS
 setopt PUSHD_SILENT
 setopt EXTENDED_GLOB

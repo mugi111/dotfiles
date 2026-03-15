@@ -8,6 +8,8 @@ base_packages=(
   fzf
   starship
   zoxide
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 if [[ -f "$MODULES_FILE" ]]; then

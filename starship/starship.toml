@@ -7,6 +7,8 @@ format = """
 $directory\
 $git_branch\
 $git_status\
+$git_state\
+$git_metrics\
 $python\
 $nodejs\
 $golang\
@@ -54,6 +56,16 @@ modified = "!"
 staged = "+"
 renamed = "r"
 deleted = "x"
+
+[git_state]
+style = "red"
+format = "[\\($state( $progress_current/$progress_total)\\)]($style) "
+
+[git_metrics]
+disabled = false
+added_style = "green"
+deleted_style = "red"
+format = "[+$added]($added_style)[ -$deleted]($deleted_style) "
 
 [character]
 success_symbol = "[❯](blue)"

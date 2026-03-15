@@ -1,5 +1,5 @@
 autoload -Uz compinit
-compinit -d "$HOME/.zcompdump"
+compinit -C -d "$HOME/.zcompdump"
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache yes

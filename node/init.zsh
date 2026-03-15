@@ -1,5 +1,13 @@
 if command -v nodenv >/dev/null 2>&1; then
-  eval "$(nodenv init - zsh)"
+  _dotfiles_init_nodenv() {
+    unset -f _dotfiles_init_nodenv nodenv
+    eval "$(command nodenv init - zsh)"
+  }
+
+  nodenv() {
+    _dotfiles_init_nodenv
+    nodenv "$@"
+  }
 fi
 
 export NVM_DIR="$HOME/.nvm"

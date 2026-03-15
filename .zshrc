@@ -17,6 +17,7 @@ module_enabled() {
 for file in \
   "$DOTFILES_DIR/zsh/homebrew.zsh" \
   "$DOTFILES_DIR/zsh/exports.zsh" \
+  "$DOTFILES_DIR/zsh/env.zsh" \
   "$DOTFILES_DIR/zsh/path.zsh" \
   "$DOTFILES_DIR/zsh/history.zsh" \
   "$DOTFILES_DIR/zsh/completion.zsh" \

@@ -94,7 +94,7 @@ contexts = [
 [python]
 symbol = ""
 style = "fg:bg bg:green"
-format = "[](fg:surface bg:green)[ $symbol $version ]($style)"
+format = "[ $symbol $version ]($style)"
 detect_files = [
   "pyproject.toml",
   "requirements.txt",
@@ -109,7 +109,7 @@ detect_extensions = ["py"]
 [nodejs]
 symbol = ""
 style = "fg:bg bg:green"
-format = "[](fg:green bg:green)[ $symbol $version ]($style)"
+format = "[ $symbol $version ]($style)"
 detect_files = [
   "package.json",
   ".node-version",
@@ -119,7 +119,7 @@ detect_files = [
 [golang]
 symbol = ""
 style = "fg:bg bg:green"
-format = "[](fg:green bg:green)[ $symbol $version ]($style)"
+format = "[ $symbol $version ]($style)"
 detect_files = [
   "go.mod",
   "go.sum",
@@ -129,7 +129,7 @@ detect_files = [
 [rust]
 symbol = ""
 style = "fg:bg bg:orange"
-format = "[](fg:green bg:orange)[ $symbol $version ]($style)"
+format = "[ $symbol $version ]($style)"
 detect_files = [
   "Cargo.toml",
   "Cargo.lock",
@@ -141,7 +141,7 @@ detect_files = [
 disabled = false
 symbol = "󰏗"
 style = "fg:bg bg:yellow"
-format = "[](fg:orange bg:yellow)[ $symbol $version ]($style)"
+format = "[ $symbol $version ]($style)"
 
 [character]
 success_symbol = "[❯](blue)"

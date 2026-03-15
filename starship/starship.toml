@@ -3,6 +3,7 @@ scan_timeout = 30
 command_timeout = 500
 palette = "tokyo_night"
 
+# Left prompt keeps the existing module order while making the powerline joins explicit.
 format = """
 $directory\
 $git_branch\
@@ -18,19 +19,20 @@ $rust\
 $package
 $character"""
 
+# Right prompt stays capsule-shaped and independent from the left powerline chain.
 right_format = "$status$cmd_duration"
 
 [palettes.tokyo_night]
+bg = "#1a1b26"
+surface = "#24283b"
+fg = "#c0caf5"
+muted = "#565f89"
 blue = "#7aa2f7"
 green = "#9ece6a"
 orange = "#ff9e64"
 purple = "#bb9af7"
 yellow = "#e0af68"
 red = "#f7768e"
-fg = "#c0caf5"
-muted = "#565f89"
-surface = "#24283b"
-bg = "#1a1b26"
 
 [directory]
 style = "fg:bg bg:blue"
@@ -72,35 +74,68 @@ added_style = "fg:green bg:surface"
 deleted_style = "fg:red bg:surface"
 format = "([+$added]($added_style)[ -$deleted ]($deleted_style))"
 
-[character]
-success_symbol = "[❯](blue)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
-
-[cmd_duration]
-min_time = 2000
-style = "fg:bg bg:yellow"
-format = "[](yellow)[ 󰔛 $duration ]($style)[](yellow)"
-show_milliseconds = false
-
-[status]
+[docker_context]
 disabled = false
-style = "fg:bg bg:red"
-symbol = "✘"
-format = "[](red)[ $symbol$status ]($style)[](red)"
+symbol = ""
+style = "fg:bg bg:blue"
+format = "[ $symbol $context ]($style)"
+only_with_files = false
+
+[kubernetes]
+disabled = false
+symbol = "󱃾"
+style = "fg:bg bg:purple"
+format = '[ $symbol $context( \($namespace\)) ]($style)'
+contexts = [
+  { context_pattern = ".*prod.*", style = "fg:bg bg:red" },
+  { context_pattern = ".*stg.*|.*stage.*", style = "fg:bg bg:yellow" },
+]
 
 [python]
 symbol = ""
 style = "fg:bg bg:green"
 format = "[](fg:surface bg:green)[ $symbol $version ]($style)"
-detect_files = ["pyproject.toml", "requirements.txt", ".python-version", "Pipfile", "tox.ini", ".venv", "venv"]
+detect_files = [
+  "pyproject.toml",
+  "requirements.txt",
+  ".python-version",
+  "Pipfile",
+  "tox.ini",
+  ".venv",
+  "venv",
+]
 detect_extensions = ["py"]
 
 [nodejs]
 symbol = ""
 style = "fg:bg bg:green"
 format = "[](fg:green bg:green)[ $symbol $version ]($style)"
-detect_files = ["package.json", ".node-version", ".nvmrc"]
+detect_files = [
+  "package.json",
+  ".node-version",
+  ".nvmrc",
+]
+
+[golang]
+symbol = ""
+style = "fg:bg bg:green"
+format = "[](fg:green bg:green)[ $symbol $version ]($style)"
+detect_files = [
+  "go.mod",
+  "go.sum",
+  ".go-version",
+]
+
+[rust]
+symbol = ""
+style = "fg:bg bg:orange"
+format = "[](fg:green bg:orange)[ $symbol $version ]($style)"
+detect_files = [
+  "Cargo.toml",
+  "Cargo.lock",
+  "rust-toolchain",
+  "rust-toolchain.toml",
+]
 
 [package]
 disabled = false
@@ -108,34 +143,22 @@ symbol = "󰏗"
 style = "fg:bg bg:yellow"
 format = "[](fg:orange bg:yellow)[ $symbol $version ]($style)"
 
-[docker_context]
+[character]
+success_symbol = "[❯](blue)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
+
+[status]
 disabled = false
-symbol = ""
-style = "fg:bg bg:blue"
-format = "[](fg:surface bg:blue)[ $symbol $context ]($style)"
-only_with_files = false
+symbol = "✘"
+style = "fg:bg bg:red"
+format = "[](red)[ $symbol$status ]($style)[](red)"
 
-[kubernetes]
-disabled = false
-symbol = "󱃾"
-style = "fg:bg bg:purple"
-format = '[](fg:blue bg:purple)[ $symbol $context( \($namespace\)) ]($style)'
-contexts = [
-  { context_pattern = ".*prod.*", style = "fg:bg bg:red" },
-  { context_pattern = ".*stg.*|.*stage.*", style = "fg:bg bg:yellow" },
-]
-
-[golang]
-symbol = ""
-style = "fg:bg bg:green"
-format = "[](fg:green bg:green)[ $symbol $version ]($style)"
-detect_files = ["go.mod", "go.sum", ".go-version"]
-
-[rust]
-symbol = ""
-style = "fg:bg bg:orange"
-format = "[](fg:green bg:orange)[ $symbol $version ]($style)"
-detect_files = ["Cargo.toml", "Cargo.lock", "rust-toolchain", "rust-toolchain.toml"]
+[cmd_duration]
+min_time = 2000
+style = "fg:bg bg:yellow"
+format = "[](yellow)[ 󰔛 $duration ]($style)[](yellow)"
+show_milliseconds = false
 
 [aws]
 disabled = true

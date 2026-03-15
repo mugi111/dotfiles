@@ -4,9 +4,19 @@ set -euo pipefail
 
 MODULES_FILE="$HOME/.dotfiles.modules.sh"
 base_packages=(
+  bat
   direnv
+  eza
+  fd
   fzf
+  jq
+  kubectx
+  kubernetes-cli
+  lazydocker
+  k9s
+  ripgrep
   starship
+  yq
   zoxide
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -25,11 +35,11 @@ fi
 packages=("${base_packages[@]}")
 
 if [[ "${DOTFILES_ENABLE_NODE:-1}" == "1" ]]; then
-  packages+=(nodenv)
+  packages+=(nodenv pnpm)
 fi
 
 if [[ "${DOTFILES_ENABLE_PYTHON:-1}" == "1" ]]; then
-  packages+=(pyenv)
+  packages+=(pyenv uv)
 fi
 
 for package in "${packages[@]}"; do

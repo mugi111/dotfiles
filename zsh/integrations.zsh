@@ -20,3 +20,25 @@ if command -v brew >/dev/null 2>&1; then
   syntax_highlighting_script="$brew_prefix/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
   [[ -f "$syntax_highlighting_script" ]] && source "$syntax_highlighting_script"
 fi
+
+if command -v kubectl >/dev/null 2>&1; then
+  source <(kubectl completion zsh)
+  compdef __start_kubectl k
+fi
+
+if command -v docker >/dev/null 2>&1; then
+  if docker completion zsh >/dev/null 2>&1; then
+    source <(docker completion zsh)
+    compdef _docker d
+  fi
+fi
+
+if command -v docker-compose >/dev/null 2>&1; then
+  if docker-compose completion zsh >/dev/null 2>&1; then
+    source <(docker-compose completion zsh)
+  fi
+fi
+
+if command -v pnpm >/dev/null 2>&1; then
+  eval "$(pnpm completion zsh)"
+fi

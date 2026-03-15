@@ -9,6 +9,8 @@ $git_branch\
 $git_status\
 $git_state\
 $git_metrics\
+$docker_context\
+$kubernetes\
 $python\
 $nodejs\
 $golang\
@@ -96,6 +98,29 @@ style = "green"
 format = "[$symbol$version]($style) "
 detect_files = ["package.json", ".node-version", ".nvmrc"]
 
+[package]
+disabled = false
+symbol = "pkg "
+style = "yellow"
+format = "[$symbol$version]($style) "
+
+[docker_context]
+disabled = false
+symbol = "docker "
+style = "blue"
+format = "[$symbol$context]($style) "
+only_with_files = false
+
+[kubernetes]
+disabled = false
+symbol = "k8s "
+style = "purple"
+format = '[$symbol$context( \($namespace\))]($style) '
+contexts = [
+  { context_pattern = ".*prod.*", style = "red" },
+  { context_pattern = ".*stg.*|.*stage.*", style = "yellow" },
+]
+
 [golang]
 symbol = "go "
 style = "green"
@@ -108,19 +133,10 @@ style = "orange"
 format = "[$symbol$version]($style) "
 detect_files = ["Cargo.toml", "Cargo.lock", "rust-toolchain", "rust-toolchain.toml"]
 
-[package]
-disabled = true
-
 [aws]
 disabled = true
 
 [gcloud]
-disabled = true
-
-[docker_context]
-disabled = true
-
-[kubernetes]
 disabled = true
 
 [terraform]

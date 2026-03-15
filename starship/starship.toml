@@ -73,9 +73,9 @@ deleted_style = "fg:red bg:surface"
 format = "([+$added]($added_style)[ -$deleted ]($deleted_style))"
 
 [character]
-success_symbol = "[](fg:yellow bg:bg)[](blue)"
-error_symbol = "[](fg:yellow bg:bg)[](red)"
-vimcmd_symbol = "[](fg:yellow bg:bg)[](green)"
+success_symbol = "[❯](blue)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
 
 [cmd_duration]
 min_time = 2000

@@ -10,6 +10,7 @@
   - `~/.zshrc` と `~/.config/starship.toml` のリンクを作成する
   - `./scripts/install.sh` を呼び出して依存ツールをインストールする
 - 新しいシェルを起動するか `source ~/.zshrc` を実行して反映する
+- Powerline 風の表示を使う場合は、ターミナルのフォントを `MesloLGS Nerd Font` に設定する
 
 ## 目的
 
@@ -76,6 +77,7 @@
 - `./scripts/install.sh`
   - 各種ツールや依存関係のインストールを担うスクリプト
   - Homebrew 経由で必要なパッケージをインストールする
+  - Powerline / Nerd Font 系グリフ表示のため `font-meslo-lg-nerd-font` も導入する
 - `./starship/starship.toml`
   - Starship のテーマ設定を管理する
 
@@ -96,7 +98,7 @@
 - `./rust/init.zsh`
   - Cargo 環境の読み込みを管理する
 - `./starship/starship.toml`
-  - 2 行構成の Starship テーマを管理する
+  - Powerline 風の 2 行構成 Starship テーマを管理する
 
 ## 運用ルール
 

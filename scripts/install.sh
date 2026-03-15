@@ -21,6 +21,9 @@ base_packages=(
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
+cask_packages=(
+  font-meslo-lg-nerd-font
+)
 
 if [[ -f "$MODULES_FILE" ]]; then
   # shellcheck disable=SC1090
@@ -46,4 +49,9 @@ for package in "${packages[@]}"; do
   brew list "$package" >/dev/null 2>&1 || brew install "$package"
 done
 
+for cask in "${cask_packages[@]}"; do
+  brew list --cask "$cask" >/dev/null 2>&1 || brew install --cask "$cask"
+done
+
 echo "Installed packages: ${packages[*]}"
+echo "Installed casks: ${cask_packages[*]}"

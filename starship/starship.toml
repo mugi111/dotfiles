@@ -28,6 +28,8 @@ surface = "#24283b"
 fg = "#c0caf5"
 muted = "#565f89"
 blue = "#7aa2f7"
+cyan = "#7dcfff"
+teal = "#73daca"
 green = "#9ece6a"
 orange = "#ff9e64"
 purple = "#bb9af7"
@@ -77,15 +79,15 @@ format = "([+$added]($added_style)[ -$deleted ]($deleted_style))"
 [docker_context]
 disabled = false
 symbol = ""
-style = "fg:bg bg:blue"
-format = "[ $symbol $context ]($style)"
+style = "fg:bg bg:teal"
+format = "[](fg:surface bg:teal)[ $symbol $context ]($style)"
 only_with_files = false
 
 [kubernetes]
 disabled = false
 symbol = "󱃾"
-style = "fg:bg bg:purple"
-format = '[ $symbol $context( \($namespace\)) ]($style)'
+style = "fg:bg bg:orange"
+format = '[](fg:teal bg:orange)[ $symbol $context( \($namespace\)) ]($style)'
 contexts = [
   { context_pattern = ".*prod.*", style = "fg:bg bg:red" },
   { context_pattern = ".*stg.*|.*stage.*", style = "fg:bg bg:yellow" },
@@ -94,7 +96,7 @@ contexts = [
 [python]
 symbol = ""
 style = "fg:bg bg:green"
-format = "[ $symbol $version ]($style)"
+format = "[](fg:orange bg:green)[ $symbol $version ]($style)"
 detect_files = [
   "pyproject.toml",
   "requirements.txt",
@@ -108,8 +110,8 @@ detect_extensions = ["py"]
 
 [nodejs]
 symbol = ""
-style = "fg:bg bg:green"
-format = "[ $symbol $version ]($style)"
+style = "fg:bg bg:cyan"
+format = "[](fg:green bg:cyan)[ $symbol $version ]($style)"
 detect_files = [
   "package.json",
   ".node-version",
@@ -118,8 +120,8 @@ detect_files = [
 
 [golang]
 symbol = ""
-style = "fg:bg bg:green"
-format = "[ $symbol $version ]($style)"
+style = "fg:bg bg:blue"
+format = "[](fg:cyan bg:blue)[ $symbol $version ]($style)"
 detect_files = [
   "go.mod",
   "go.sum",
@@ -129,7 +131,7 @@ detect_files = [
 [rust]
 symbol = ""
 style = "fg:bg bg:orange"
-format = "[ $symbol $version ]($style)"
+format = "[](fg:blue bg:orange)[ $symbol $version ]($style)"
 detect_files = [
   "Cargo.toml",
   "Cargo.lock",
@@ -141,7 +143,7 @@ detect_files = [
 disabled = false
 symbol = "󰏗"
 style = "fg:bg bg:yellow"
-format = "[ $symbol $version ]($style)"
+format = "[](fg:orange bg:yellow)[ $symbol $version ]($style)"
 
 [character]
 success_symbol = "[❯](blue)"

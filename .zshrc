@@ -25,7 +25,7 @@ for file in \
   "$DOTFILES_DIR/zsh/keybindings.zsh" \
   "$DOTFILES_DIR/zsh/aliases.zsh" \
   "$DOTFILES_DIR/zsh/functions.zsh" \
-  "$DOTFILES_DIR/zsh/prompt.zsh" \
+  "$DOTFILES_DIR/powerline/prompt.zsh" \
   "$DOTFILES_DIR/zsh/integrations.zsh" \
   "$DOTFILES_DIR/zsh/local.zsh"
 do
@@ -61,3 +61,10 @@ if module_enabled macos; then
   source "$DOTFILES_DIR/macos/aliases.zsh"
   source "$DOTFILES_DIR/macos/functions.zsh"
 fi
+
+# bun completions
+[ -s "/Users/mugi111/.bun/_bun" ] && source "/Users/mugi111/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

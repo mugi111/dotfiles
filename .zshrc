@@ -44,6 +44,7 @@ if module_enabled python; then
   source "$DOTFILES_DIR/python/aliases.zsh"
   source "$DOTFILES_DIR/python/path.zsh"
   source "$DOTFILES_DIR/python/init.zsh"
+  source "$DOTFILES_DIR/python/auto-venv.zsh"
 fi
 
 if module_enabled node; then

@@ -1,16 +1,4 @@
-if command -v nodenv >/dev/null 2>&1; then
-  _dotfiles_init_nodenv() {
-    unset -f _dotfiles_init_nodenv nodenv
-    eval "$(command nodenv init - zsh)"
-  }
-
-  nodenv() {
-    _dotfiles_init_nodenv
-    nodenv "$@"
-  }
-fi
-
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 
 if command -v brew >/dev/null 2>&1; then
   typeset nvm_script

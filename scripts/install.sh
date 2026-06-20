@@ -38,7 +38,7 @@ fi
 packages=("${base_packages[@]}")
 
 if [[ "${DOTFILES_ENABLE_NODE:-1}" == "1" ]]; then
-  packages+=(nodenv pnpm)
+  packages+=(nvm pnpm)
 fi
 
 if [[ "${DOTFILES_ENABLE_PYTHON:-1}" == "1" ]]; then

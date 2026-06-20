@@ -6,16 +6,16 @@
 2. `./scripts/bootstrap.sh` を実行
 3. `source ~/.zshrc` を実行
 
-`~/.zshrc` と `~/.config/starship.toml` のリンクを作成し、依存ツールのインストールスクリプトを実行
+`~/.zshrc` のリンクを作成し、依存ツールのインストールスクリプトを実行
 
 ターミナルは `MesloLGS Nerd Font` を使用
 
 ## Structure
 
 - `scripts/`: bootstrap と install 用のスクリプト
+- `powerline/`: Powerline プロンプト設定
 - `zsh/`: Zsh 設定
 - `**/`: ツール別の設定
-- `starship/`: Starship のテーマ/設定
 
 ## Guidelines
 

@@ -145,12 +145,12 @@ prompt_module_selection
 save_module_selection
 
 ln -snf "$SOURCE_ZSHRC" "$TARGET_ZSHRC"
-ln -snf "$ROOT_DIR/starship/starship.toml" "$HOME/.config/starship.toml"
+rm -f "$HOME/.config/starship.toml"
 
 "$INSTALL_SCRIPT"
 
 echo "Bootstrapped dotfiles from: $ROOT_DIR"
 echo "Linked: $TARGET_ZSHRC -> $SOURCE_ZSHRC"
-echo "Linked: $HOME/.config/starship.toml -> $ROOT_DIR/starship/starship.toml"
+echo "Removed unused Starship config link: $HOME/.config/starship.toml"
 echo "Configured modules: $MODULES_FILE"
 echo "Executed: $INSTALL_SCRIPT"
